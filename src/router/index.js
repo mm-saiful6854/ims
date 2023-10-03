@@ -13,26 +13,7 @@ const ProductsCreate = () => import('../components/Product/CreateProduct.vue');
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    },
-    {
-      path: '/dashboard',
-      name: 'dashboard',
-      component: Dashboard
-    },
-    {
-      path: '/products',
-      name: 'products',
-      component: Products
-    },
-    {
-      path: '/product-create',
-      name: 'product-create',
-      component: ProductsCreate
-    },
+    //login and registration
     {
       path: '/login',
       name: 'login',
@@ -52,6 +33,29 @@ const router = createRouter({
       path: '/password-reset',
       name: 'password-reset',
       component: PasswordReset
+    },
+    //end login and registration
+
+
+    {
+      path: '/',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard
+    },
+    {
+      path: '/products',
+      name: 'products',
+      component: Products
+    },
+    {
+      path: '/product-create',
+      name: 'product-create',
+      component: ProductsCreate
     },
   ]
 })

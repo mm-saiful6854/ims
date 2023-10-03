@@ -1,34 +1,38 @@
-<script>
-import { createApp, ref } from 'vue';
+<script setup>
+import 'vue3-easy-data-table/dist/style.css';
+import Vue3EasyDataTable from 'vue3-easy-data-table';
+import {onMounted, ref} from "vue";
 
-const App = {
-components: { EasyDataTable: window["vue3-easy-data-table"] },
-setup() {
-    const headers = ref([
-    { text: "PLAYER", value: "player" },
-    { text: "TEAM", value: "team"},
-    { text: "NUMBER", value: "number"},
-    { text: "POSITION", value: "position"},
-    { text: "HEIGHT", value: "indicator.height"},
-    { text: "WEIGHT (lbs)", value: "indicator.weight", sortable: true},
-    { text: "LAST ATTENDED", value: "lastAttended", width: 200},
-    { text: "COUNTRY", value: "country"},
-    ]);
-    const items = ref([
-    { player: "Stephen Curry", team: "GSW", number: 30, position: 'G', indicator: {"height": '6-2', "weight": 185}, lastAttended: "Davidson", country: "USA"},
-    { player: "Lebron James", team: "LAL", number: 6, position: 'F', indicator: {"height": '6-9', "weight": 250}, lastAttended: "St. Vincent-St. Mary HS (OH)", country: "USA"},
-    { player: "Kevin Durant", team: "BKN", number: 7, position: 'F', indicator: {"height": '6-10', "weight": 240}, lastAttended: "Texas-Austin", country: "USA"},
-    { player: "Giannis Antetokounmpo", team: "MIL", number: 34, position: 'F', indicator: {"height": '6-11', "weight": 242}, lastAttended: "Filathlitikos", country: "Greece"},
-    ]);
-    return {
-    headers,
-    items,
-    };
-}
-};
+const headers = [
+  { text: "title", value: "title" },
+  { text: "description", value: "description"},
+  { text: "price", value: "price"},
+  { text: "discountPercentage", value: "discountPercentage"},
+  { text: "rating", value: "rating"},
+  { text: "stock", value: "stock", sortable: true}
+];
 
+const items = ref([]);
+
+onMounted(async () => {
+  const resJson = await fetch('https://dummyjson.com/products?limit=3').then(resText => {
+    return resText.json();
+  })
+  items.value = resJson.products;
+  console.log(items.value)
+})
+
+
+const loading = ref(false)
 // createApp(App).mount("#app");
 </script>
+
+
+
 <template>
-<div id="app"></div>
+  <Vue3EasyDataTable
+      show-index
+      :loading="loading"
+      :headers="headers"
+      :items="items"/>
 </template>
