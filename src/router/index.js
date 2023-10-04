@@ -1,4 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
+import Category from "@/views/Category.vue";
+
 const Home = () => import('../views/Home.vue');
 
 const Login = () => import('../views/Login.vue');
@@ -56,6 +59,11 @@ const router = createRouter({
       path: '/product-create',
       name: 'product-create',
       component: ProductsCreate
+    },
+    {
+      path: '/category',
+      name: 'category',
+      component: Category
     },
   ]
 })

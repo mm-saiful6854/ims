@@ -2,7 +2,6 @@
 import Layout from '../components/Layout.vue';
 </script>
 <template>
-<Layout>
     <div class="grid grid-cols-3 gap-4 mb-4">
         <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
             Total Active Products
@@ -30,5 +29,4 @@ import Layout from '../components/Layout.vue';
     <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
         Latest Invoice List
     </div>
-</Layout>
 </template>
