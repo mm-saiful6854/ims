@@ -7,8 +7,8 @@ const PasswordForget = () => import('../views/PasswordForget.vue');
 const PasswordReset = () => import('../views/PasswordReset.vue');
 
 const Dashboard = () => import('../views/Dashboard.vue');
-const Products = () => import('../views/Products.vue');
-const ProductsCreate = () => import('../components/Product/CreateProduct.vue');
+const ProductList = () => import('../views/ProductList.vue');
+const ProductsCreate = () => import('../views/CreateProduct.vue');
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,7 +50,7 @@ const router = createRouter({
     {
       path: '/products',
       name: 'products',
-      component: Products
+      component: ProductList
     },
     {
       path: '/product-create',
