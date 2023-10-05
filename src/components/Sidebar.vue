@@ -22,6 +22,7 @@ import { RouterLink } from 'vue-router';
                         </svg>
                         <span class="flex-1 ml-3 whitespace-nowrap">Products</span>
                     </router-link>
+                    
                 </li>
             </ul>
         </div>

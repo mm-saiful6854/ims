@@ -6,7 +6,7 @@ import ListProduct from '../components/Product/ListProduct.vue';
 <template>
     <Layout>
         <div class="flex justify-between"> 
-            <span></span>
+            <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Products List</h2>
             <v-btn 
             prepend-icon="mdi-plus-circle"
             color="blue"
@@ -16,6 +16,6 @@ import ListProduct from '../components/Product/ListProduct.vue';
             </v-btn>
         </div>
 
-        <ListProduct class="mt-7"></ListProduct>
+        <ListProduct class="mt-2"></ListProduct>
     </Layout>
 </template>
