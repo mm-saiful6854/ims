@@ -1,26 +1,27 @@
 <script setup>
 import {ref} from "vue";
 
-const breadcubms =ref(['Dashboard','Product','Create Product'])
+const breadcrumbs = ref(['Dashboard', 'Product', 'Create Product'])
 </script>
 <template>
-  <v-sheet class="my-2">
-    <v-breadcrumbs :items="breadcubms">
+  <v-sheet class="my-2 d-flex justify-between align-center">
+    <v-breadcrumbs :items="breadcrumbs">
       <template v-slot:divider>
         <v-icon icon="mdi-chevron-right"></v-icon>
       </template>
     </v-breadcrumbs>
+    <v-btn class="mx-1"
+           size="small"
+           color="#009688"
+           prepend-icon="mdi-arrow-left"
+           to="/products">
+      Back
+    </v-btn>
   </v-sheet>
   <section class="bg-white dark:bg-gray-900">
     <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
       <div class="flex justify-between">
         <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Add a new product</h2>
-        <v-btn
-            color="#009688"
-            prepend-icon="mdi-arrow-left"
-            to="/products">
-          Back
-        </v-btn>
       </div>
       <form action="#">
         <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">

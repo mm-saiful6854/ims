@@ -1,15 +1,13 @@
 <script setup>
-import {RouterLink} from 'vue-router';
-import Layout from '../components/Layout.vue';
 import ListProduct from '../components/Product/ListProduct.vue';
 import {ref} from "vue";
 
 const title = 'Product'
-const breadcubms =ref(['Dashboard','Product','ListProduct'])
+const breadcrubms =ref(['Dashboard','Product','ListProduct'])
 </script>
 <template>
   <v-sheet class="my-2">
-    <v-breadcrumbs :items="breadcubms">
+    <v-breadcrumbs :items="breadcrubms">
       <template v-slot:divider>
         <v-icon icon="mdi-chevron-right"></v-icon>
       </template>
@@ -21,7 +19,7 @@ const breadcubms =ref(['Dashboard','Product','ListProduct'])
       <h5>{{title}}</h5>
       <v-btn
           prepend-icon="mdi-plus-box-outline"
-          color="blue"
+          class="bg-purple-accent-4 text-center"
           to="/product-create">
         Add Product
       </v-btn>

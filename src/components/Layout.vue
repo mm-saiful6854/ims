@@ -26,10 +26,16 @@ const items = reactive([
     <v-app-bar>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-app-bar-title>{{ appName }}</v-app-bar-title>
-      <v-btn @click="toggleTheme"
-             prepend-icon="mdi-white-balance-sunny">
+      <v-btn @click="toggleTheme" prepend-icon="mdi-white-balance-sunny">
         {{ theme.global.current.value.dark ? 'Light' : 'Dark' }}
       </v-btn>
+      <v-avatar class="m-4" size="36px">
+        <v-img
+            alt="user"
+            src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"/>
+      </v-avatar>
+
+
     </v-app-bar>
 
     <!-- sidebar end -->
