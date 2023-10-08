@@ -27,14 +27,3 @@ npm run dev
 ```sh
 npm run build
 ```
-
-
-
-### next target
-- product crud
-  - product category page crud
-  - product band crud
-- invoice
-- user crud
-- customer crud
-- vendor (product source) crud

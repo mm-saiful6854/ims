@@ -9,7 +9,7 @@ import PasswordForget from "@/views/PasswordForget.vue";
 import PasswordReset from "@/views/PasswordReset.vue";
 import Home from "@/views/Home.vue";
 import Dashboard from "@/views/Dashboard.vue";
-import Products from "@/views/Products.vue";
+import Products from "@/views/Product.vue";
 import CreateProduct from "@/components/Product/CreateProduct.vue";
 
 

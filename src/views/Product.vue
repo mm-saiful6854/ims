@@ -14,19 +14,19 @@ const breadcrubms =ref(['Dashboard','Product','ListProduct'])
     </v-breadcrumbs>
   </v-sheet>
   <v-card>
-  <v-card-title>
-    <v-row class="my-2 mx-2 flex justify-between">
-      <h5>{{title}}</h5>
-      <v-btn
-          prepend-icon="mdi-plus-box-outline"
-          class="bg-purple-accent-4 text-center"
-          to="/product-create">
-        Add Product
-      </v-btn>
-    </v-row>
-  </v-card-title>
-  <v-card-text>
-    <ListProduct />
-  </v-card-text>
-</v-card>
+    <v-card-title>
+      <v-row class="my-2 mx-2 flex justify-between">
+        <h5>{{title}}</h5>
+        <v-btn
+            prepend-icon="mdi-plus-box-outline"
+            class="bg-purple-accent-4 text-center"
+            to="/product-create">
+          Add Product
+        </v-btn>
+      </v-row>
+    </v-card-title>
+    <v-card-text>
+      <ListProduct />
+    </v-card-text>
+  </v-card>
 </template>
