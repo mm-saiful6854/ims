@@ -12,7 +12,7 @@ const breadcrumbs = ref(['Dashboard', 'Product', 'Create Product'])
     </v-breadcrumbs>
     <v-btn class="mx-1"
            size="small"
-           color="#009688"
+           color="orange-darken-2"
            prepend-icon="mdi-arrow-left"
            to="/products">
       Back

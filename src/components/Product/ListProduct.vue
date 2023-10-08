@@ -24,9 +24,8 @@ const loading = ref(false)
 const items = ref([]);
 
 onBeforeMount(async () => {
-  await axios.get('https://dummyjson.com/products?limit=10').then(res => {
+  await axios.get(`https://dummyjson.com/products?limit=${itemsPerPage.value}`).then(res => {
     items.value = res.data.products;
-    console.log(items.value);
   }).catch((error) => {
     if (error.response) {
       toastr.error(error.response.data.message, "Error");
@@ -55,11 +54,13 @@ onBeforeMount(async () => {
       item-value="name"
   >
     <template v-slot:item.actions="{ item }">
-      <router-link :to="{ name: 'productDetails', params: { id: item.id }}">
-        <v-icon size="small" class="me-2">
-          mdi-eye
-        </v-icon>
-      </router-link>
+        <v-btn size="small"
+               color="warning"
+               prepend-icon="mdi-eye"
+               :to="{ name: 'productDetails', params: { id: item.id }}"
+        >
+          Details
+        </v-btn>
     </template>
     <template v-slot:top>
       <div class="w-75">

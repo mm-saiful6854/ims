@@ -12,11 +12,13 @@ function toggleTheme() {
 }
 
 const items = reactive([
-  {text: 'Dashboard', icon: 'mdi-car-cruise-control', url: "dashboard"},
-  {text: 'Product', icon: 'mdi-cube-outline', url: "products"},
-  {text: 'User', icon: 'mdi-account', url: ""},
-  // {text: 'Category', icon: 'mdi-star',url:""},
-  // {text: 'Settings', icon: 'mdi-settings-box',url:""},
+  {text: 'Dashboard', icon: 'mdi-car-cruise-control', url: "/dashboard"},
+  {text: 'Product', icon: 'mdi-cube-outline', url: "/products"},
+  {text: 'Stock', icon: 'mdi-codepen', url: ""},
+  {text: 'Category', icon: 'mdi-format-list-bulleted', url: ""},
+  {text: 'Brand', icon: 'mdi-format-list-bulleted', url: ""},
+  {text: 'Settings', icon: 'mdi-cogs', url: ""},
+  {text: 'Users', icon: 'mdi-account', url: ""},
 
 ])
 </script>
@@ -25,17 +27,32 @@ const items = reactive([
   <v-app id="inspire">
     <v-app-bar>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-app-bar-title>{{ appName }}</v-app-bar-title>
+      <v-app-bar-title>
+        <router-link to="dashboard">{{ appName }}</router-link>
+      </v-app-bar-title>
       <v-btn @click="toggleTheme" prepend-icon="mdi-white-balance-sunny">
         {{ theme.global.current.value.dark ? 'Light' : 'Dark' }}
       </v-btn>
-      <v-avatar class="m-4" size="36px">
-        <v-img
-            alt="user"
-            src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"/>
-      </v-avatar>
 
-
+      <v-menu>
+        <template v-slot:activator="{ props }">
+          <v-avatar class="m-4 cursor-pointer" v-bind="props" size="36px">
+            <v-img
+                alt="user"
+                src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"/>
+          </v-avatar>
+        </template>
+        <v-list>
+          <v-list-item>
+            <router-link :to="{name:login}">
+              <v-list-item-title to="login">
+                <v-icon icon="mdi-power"></v-icon>
+                Logout
+              </v-list-item-title>
+            </router-link>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
 
     <!-- sidebar end -->
