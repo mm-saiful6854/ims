@@ -15,10 +15,10 @@
     "vue": "^3.3.4",
     "vue-chartjs": "^5.2.0",
     "vue-router": "^4.2.4",
-    "vue3-easy-data-table": "^1.5.47"
+    "vue3-easy-data-table": "^1.5.47",
+    "vue3-toastify": "^0.1.13"
   },
   "devDependencies": {
-    "@mdi/font": "^7.2.96",
     "@vitejs/plugin-vue": "^4.3.4",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
