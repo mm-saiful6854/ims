@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import Category from "@/views/Category.vue";
+import SingleProduct from "@/components/Product/SingleProduct.vue";
+import NotFound from "@/components/NotFound.vue";
 
 const Home = () => import('../views/Home.vue');
 
@@ -38,8 +40,6 @@ const router = createRouter({
       component: PasswordReset
     },
     //end login and registration
-
-
     {
       path: '/',
       name: 'home',
@@ -53,7 +53,12 @@ const router = createRouter({
     {
       path: '/products',
       name: 'products',
-      component: Products
+      component: Products,
+    },
+    {
+      path: '/products/:id/details', // Dynamic route parameter for product ID
+      name: 'productDetails',
+      component: SingleProduct
     },
     {
       path: '/product-create',
@@ -64,6 +69,10 @@ const router = createRouter({
       path: '/category',
       name: 'category',
       component: Category
+    },
+    {
+      path: '/:catchAll(.*)',
+      component: NotFound,
     },
   ]
 })

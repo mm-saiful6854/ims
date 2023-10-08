@@ -17,9 +17,10 @@ const headers = reactive([
 
 
 const search = ref('')
-const name = ref('') //remove
 const totalItems = ref(0)
 const loading = ref(false)
+const showDetailsView = ref(false)
+const productDetails = ref()
 
 const items = ref([]);
 
@@ -40,10 +41,48 @@ onBeforeMount(async () => {
 
 
 })
+
+
+function showDetails(item) {
+  showDetailsView.value = true;
+  productDetails.value = item;
+}
+
 </script>
 
 <template>
+  <div v-if="showDetailsView">
+    <h1>Product Details</h1>
+    <div class="d-flex">
+      <div class="p-2">
+        <img :src="productDetails.thumbnail" class="img-fluid">
+      </div>
+      <div>
+          <v-sheet
+              class="px-4"
+              min-height="250"
+              rounded
+              max-width="800"
+              width="100%">
+            <div class="p-2">
+              <h2 class="text-h4 my-2 font-weight-black text-orange">{{ productDetails.title }}</h2>
+              <h4>Category: {{productDetails.category}}</h4>
+              <h4>Brand: {{productDetails.brand}}</h4>
+              <p class="text-body-2 mt-4 mb-4">
+                {{ productDetails.description }}
+              </p>
+                <h2 class="text-h4 text-decoration-line-through w-50 font-weight-black text-orange border">${{ productDetails.price }}</h2>
+            <h5>Stock:{{productDetails.stock}}</h5>
+
+
+            </div>
+          </v-sheet>
+      </div>
+
+    </div>
+  </div>
   <v-data-table-server
+      v-else
       v-model:items-per-page="itemsPerPage"
       :headers="headers"
       :items-length="totalItems"
@@ -55,15 +94,15 @@ onBeforeMount(async () => {
       item-value="name"
   >
     <template v-slot:item.actions="{ item }">
-      <router-link :to="{ name: 'productDetails', params: { id: item.id }}">
-        <v-icon size="small" class="me-2">
-          mdi-eye
-        </v-icon>
-      </router-link>
+      <v-icon size="small" class="me-2"
+              @click="showDetails(item)"
+      >
+        mdi-eye
+      </v-icon>
     </template>
     <template v-slot:top>
       <div class="w-75">
-        <v-text-field v-model="search" hide-details placeholder="Search name..." class="ma-2 w-25"
+        <v-text-field v-model="name" hide-details placeholder="Search name..." class="ma-2 w-25"
                       density="compact">
         </v-text-field>
       </div>
