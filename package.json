@@ -8,12 +8,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "chart.js": "^4.4.0",
     "flowbite": "^1.8.1",
+    "flowbite-vue": "^0.0.17-next.13",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",
+    "vue-chartjs": "^5.2.0",
     "vue-router": "^4.2.4",
-    "vue3-easy-data-table": "^1.5.47",
-    "vuetify": "^3.3.19"
+    "vue3-easy-data-table": "^1.5.47"
   },
   "devDependencies": {
     "@mdi/font": "^7.2.96",
