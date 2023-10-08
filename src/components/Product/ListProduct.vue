@@ -1,7 +1,7 @@
 <script setup>
-import axios from "axios";
-import {onBeforeMount, onMounted, reactive, ref} from "vue";
+import {onBeforeMount, reactive, ref, watch} from "vue";
 import {VDataTableServer} from 'vuetify/labs/VDataTable'
+import ProductService from "../../service/ProductService";
 
 const itemsPerPage = ref(5)
 
@@ -15,6 +15,10 @@ const headers = reactive([
   {title: 'Actions', key: 'actions', sortable: false, align: 'center'},
 ])
 
+watch(itemsPerPage,async (newVal) => {
+  items.value = await ProductService.getProductList(newVal);
+})
+
 
 const search = ref('')
 const name = ref('') //remove
@@ -24,20 +28,9 @@ const loading = ref(false)
 const items = ref([]);
 
 onBeforeMount(async () => {
-  await axios.get(`https://dummyjson.com/products?limit=${itemsPerPage.value}`).then(res => {
-    items.value = res.data.products;
-  }).catch((error) => {
-    if (error.response) {
-      toastr.error(error.response.data.message, "Error");
-      if (error.response && error.response.data.errors) {
-        console.log(error.response.data.errors)
-      }
-    } else {
-      toastr.error(error.message, "Error");
-    }
-  });
+  items.value = await ProductService.getProductList(itemsPerPage.value);
 
-
+  console.log(items.value)
 })
 </script>
 
