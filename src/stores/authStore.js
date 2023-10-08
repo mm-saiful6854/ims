@@ -1,5 +1,5 @@
 import {ref, reactive } from 'vue';
-import router from '../router/index';
+import router from '../router/router';
 import { defineStore } from 'pinia';
 
 import { toast } from 'vue3-toastify';

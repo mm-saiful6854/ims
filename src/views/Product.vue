@@ -3,7 +3,7 @@ import ListProduct from '../components/Product/ListProduct.vue';
 import {ref} from "vue";
 
 const title = 'Product'
-const breadcrubms = ref(['Dashboard', 'Product', 'ListProduct'])
+const breadcrubms =ref(['Dashboard','Product','ListProduct'])
 </script>
 <template>
   <v-sheet class="my-2">
@@ -16,7 +16,7 @@ const breadcrubms = ref(['Dashboard', 'Product', 'ListProduct'])
   <v-card>
     <v-card-title>
       <v-row class="my-2 mx-2 flex justify-between">
-        <h5>{{ title }}</h5>
+        <h5>{{title}}</h5>
         <v-btn
             prepend-icon="mdi-plus-box-outline"
             class="bg-purple-accent-4 text-center"
@@ -26,7 +26,7 @@ const breadcrubms = ref(['Dashboard', 'Product', 'ListProduct'])
       </v-row>
     </v-card-title>
     <v-card-text>
-      <ListProduct/>
+      <ListProduct />
     </v-card-text>
   </v-card>
 </template>

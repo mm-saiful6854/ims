@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted, ref, reactive } from 'vue';
 import { RouterLink } from 'vue-router';
-import { initFlowbite } from 'flowbite';
 
 import authStore from '../../stores/authStore';
 const auth  = authStore();

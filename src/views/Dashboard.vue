@@ -1,25 +1,25 @@
 <script setup>
 import { Bar, Pie, Doughnut, Line } from 'vue-chartjs'
-import { 
-    Chart as ChartJS, 
-    Title, 
-    Tooltip, 
-    Legend, 
-    BarElement, 
-    ArcElement, 
-    CategoryScale, 
+import {
+    Chart as ChartJS,
+    Title,
+    Tooltip,
+    Legend,
+    BarElement,
+    ArcElement,
+    CategoryScale,
     LinearScale,
     PointElement,
     LineElement,
 } from 'chart.js';
 
 ChartJS.register(
-    Title, 
-    Tooltip, 
-    Legend, 
-    BarElement, 
+    Title,
+    Tooltip,
+    Legend,
+    BarElement,
     ArcElement ,
-    CategoryScale, 
+    CategoryScale,
     LinearScale,
     PointElement,
     LineElement,
@@ -32,7 +32,7 @@ const chartOptions = {
 
 const barChartData = {
     labels:['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ],
-    datasets: 
+    datasets:
     [
         {
             label: 'Monthly Sales',
@@ -54,7 +54,7 @@ const pieChartData = {
 
 </script>
 <template>
-  
+
     <div class="grid grid-cols-3 gap-4 mb-4">
         <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
             Total Active Products
